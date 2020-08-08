@@ -1,6 +1,5 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
-import Registro from './RegistroAltas';
 
 const todos = (props) => {
 	return (
@@ -17,14 +16,16 @@ const todos = (props) => {
 							Editar
 						</Nav.Link>
 						<Nav.Link href="#link">Borrar</Nav.Link>
-						<Nav.Link href="#link">Listar</Nav.Link>
+						<Nav.Link onClick={props.listar} href="#link">
+							Listar
+						</Nav.Link>
 						<Nav.Link href="#link">Consultar</Nav.Link>
 					</Nav>
 				</Navbar.Collapse>
 				<Nav>
-					<Nav.Link href="#deets">More deets</Nav.Link>
+					<Nav.Link href="#deets">Quitar esto</Nav.Link>
 					<Nav.Link eventKey={2} href="#memes">
-						Dank memes
+						y esto
 					</Nav.Link>
 				</Nav>
 			</Navbar>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
-const agregarcontenido = () => {};
+// const agregarcontenido = () => {};
 const Registro = () => {
 	return (
 		<div className="Registro">

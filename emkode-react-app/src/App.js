@@ -3,35 +3,52 @@ import Registro from './Componentes/RegistroAltas';
 import './App.css';
 import Navbar from './Componentes/navbar';
 import Editar from './Componentes/Editar';
-import Empleado from './Componentes/listar';
+import Lista from './Componentes/listar';
+import Pagprin from './Componentes/PaginaStandard';
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			activeagregar: false,
-			activeedit: false
+			activeedit: false,
+			activelistar: false,
+			pagdef: true
 		};
 	}
 
 	triggeragregar = () => {
 		this.setState({
 			activeagregar: !this.state.activeagregar,
-			activeedit: false
+			activeedit: false,
+			activelistar: false,
+			pagdef: false
 		});
 	};
 	triggereditar = () => {
 		this.setState({
 			activeedit: !this.state.activeedit,
-			activeagregar: false
+			activeagregar: false,
+			activelistar: false,
+			pagdef: false
+		});
+	};
+	triggerlistar = () => {
+		this.setState({
+			activelistar: !this.state.activelistar,
+			activeagregar: false,
+			activeedit: false,
+			pagdef: false
 		});
 	};
 	render() {
 		return (
 			<div className="App">
-				<Navbar agregar={this.triggeragregar} editar={this.triggereditar} />
+				<Navbar agregar={this.triggeragregar} editar={this.triggereditar} listar={this.triggerlistar} />
+				{this.state.pagdef && <Pagprin />}
 				{this.state.activeagregar && <Registro />}
 				{this.state.activeedit && !this.state.activeagregar && <Editar />}
+				{this.state.activelistar && <Lista />}
 			</div>
 		);
 	}

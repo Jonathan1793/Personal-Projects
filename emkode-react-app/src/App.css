@@ -12,7 +12,7 @@
 	margin-left: 33%;
 	margin-right: 33%;
 	margin-top: 60px;
-	background-color: antiquewhite;
+	background-color: aquamarine;
 	padding-left: 5%;
 	padding-right: 5%;
 	padding-bottom: 5%;
@@ -20,4 +20,12 @@
 
 .Inputs {
 	margin-bottom: 10px;
+}
+.editar {
+	border: 2px solid black;
+}
+
+.cartita {
+	float: left;
+	margin-left: 5%;
 }
