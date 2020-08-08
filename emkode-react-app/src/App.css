@@ -1,0 +1,23 @@
+.App {
+	text-align: center;
+	margin: auto;
+}
+
+.email {
+	margin-left: 15px;
+}
+
+.Registro {
+	border: 2px solid black;
+	margin-left: 33%;
+	margin-right: 33%;
+	margin-top: 60px;
+	background-color: antiquewhite;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 5%;
+}
+
+.Inputs {
+	margin-bottom: 10px;
+}
