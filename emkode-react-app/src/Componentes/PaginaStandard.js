@@ -28,6 +28,15 @@ const Pagprin = () => {
 					</Card.Text>
 				</Card.Body>
 			</Card>
+			<Card className="cartita" border="primary" style={{ width: '18rem' }}>
+				<Card.Header>Helllo</Card.Header>
+				<Card.Body>
+					<Card.Title>Texto de mas UuUr</Card.Title>
+					<Card.Text>
+						Si llegas a ver este texto es que la pagina aun no tiene todas sus funciones trabajando
+					</Card.Text>
+				</Card.Body>
+			</Card>
 		</div>
 	);
 };
