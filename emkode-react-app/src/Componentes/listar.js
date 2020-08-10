@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import data from '../db.json';
-import { Table } from 'react-bootstrap';
+import { Table, Form, FormControl } from 'react-bootstrap';
 
 let datos = data.employees;
 
@@ -10,25 +10,74 @@ let datos = data.employees;
 // 	}
 // }
 
-const Lista = () => {
-	return (
-		<div>
-			<Table>
-				<tbody>
-					{datos.map(function(item, key) {
-						return (
-							<tr key={key}>
-								<td>{item.id}</td>
-								<td>{item.name}</td>
-								<td>{item.last_name}</td>
-								<td>{item.email}</td>
-								<td>{item.phone}</td>
-							</tr>
-						);
-					})}
-				</tbody>
-			</Table>
-		</div>
-	);
-};
+// const searchforsome = (event) => {
+// 	filter(event.target.value);
+
+// };
+function searchfor(term) {
+	return function(x) {
+		return (
+			x.name.toLowerCase().includes(term.toLowerCase()) ||
+			x.last_name.toLowerCase().includes(term.toLowerCase()) ||
+			x.email.toLowerCase().includes(term.toLowerCase()) ||
+			x.phone.toLowerCase().includes(term)
+			// x.last_name.toLowerCase().includes(term.toLowerCase() || !term)
+		);
+	};
+}
+
+class Lista extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			datos: datos,
+			term: ''
+		};
+	}
+	searchHandler = (event) => {
+		this.setState({
+			term: event.target.value
+		});
+	};
+
+	render() {
+		const { term, datos } = this.state;
+		return (
+			<div>
+				<Form className="search" inline>
+					<FormControl
+						onChange={this.searchHandler}
+						value={this.state.term}
+						type="text"
+						placeholder="Search"
+						className="mr-lg-2"
+					/>
+				</Form>
+				<Table>
+					<tbody>
+						<tr>
+							<th>ID</th>
+							<th>Nombre</th>
+							<th>Apellido</th>
+							<th>Email</th>
+							<th>Telefono</th>
+						</tr>
+
+						{datos.filter(searchfor(term)).map(function(item, key) {
+							return (
+								<tr key={key}>
+									<td>{item.id}</td>
+									<td>{item.name}</td>
+									<td>{item.last_name}</td>
+									<td>{item.email}</td>
+									<td>{item.phone}</td>
+								</tr>
+							);
+						})}
+					</tbody>
+				</Table>
+			</div>
+		);
+	}
+}
 export default Lista;

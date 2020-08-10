@@ -15,11 +15,12 @@ const todos = (props) => {
 						<Nav.Link onClick={props.editar} href="#link">
 							Editar
 						</Nav.Link>
-						<Nav.Link href="#link">Borrar</Nav.Link>
+						<Nav.Link onClick={props.Borrar} href="#link">
+							Borrar
+						</Nav.Link>
 						<Nav.Link onClick={props.listar} href="#link">
 							Listar
 						</Nav.Link>
-						<Nav.Link href="#link">Consultar</Nav.Link>
 					</Nav>
 				</Navbar.Collapse>
 				<Nav>

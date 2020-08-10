@@ -7,9 +7,8 @@ let lista = data.employees;
 class Registro extends Component {
 	constructor(props) {
 		super(props);
-		let numeroid = lista.length + 1;
 		this.state = {
-			id: numeroid,
+			// id: numeroid,
 			name: '',
 			last_name: '',
 			email: '',
@@ -27,11 +26,19 @@ class Registro extends Component {
 
 	//Añade el nuevo Json creado por esta clase dentro de la lista y automaticamente se actauliza la lista
 	btnclick = (event) => {
-		let numero = 0;
-		for (let i = 0; i <= lista.length; i++) {
-			numero++;
-		}
-		lista.push(this.state);
+		// let numero = 0;
+		// for (let i = 0; i <= lista.length; i++) {
+		// 	numero++;
+		// }
+		const lastId = lista[lista.length - 1].id + 1;
+
+		lista.push({ ...this.state, id: lastId });
+		this.setState({
+			name: '',
+			last_name: '',
+			email: '',
+			phone: ''
+		});
 	};
 
 	render() {
