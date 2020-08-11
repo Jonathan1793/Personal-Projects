@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import data from '../db.json';
-import { Table, Form, FormControl } from 'react-bootstrap';
+import { Table, Form, FormControl, Button } from 'react-bootstrap';
 
 let datos = data.employees;
 
@@ -15,7 +15,7 @@ let datos = data.employees;
 
 // };
 function searchfor(term) {
-	return function(x) {
+	return (x) => {
 		return (
 			x.name.toLowerCase().includes(term.toLowerCase()) ||
 			x.last_name.toLowerCase().includes(term.toLowerCase()) ||
@@ -38,6 +38,17 @@ class Lista extends Component {
 		this.setState({
 			term: event.target.value
 		});
+	};
+	triggerdelete = (id) => {
+		//JESUS FUCKING CHRIST MAN, WORK!
+		let datos = [ ...this.state.datos ];
+		let datoborrar = datos.findIndex((item) => item.id === id);
+
+		datos.splice(datoborrar, 1);
+		this.setState({
+			datos
+		});
+		console.log('fin', datos);
 	};
 
 	render() {
@@ -63,7 +74,7 @@ class Lista extends Component {
 							<th>Telefono</th>
 						</tr>
 
-						{datos.filter(searchfor(term)).map(function(item, key) {
+						{datos.filter(searchfor(term)).map((item, key) => {
 							return (
 								<tr key={key}>
 									<td>{item.id}</td>
@@ -71,6 +82,12 @@ class Lista extends Component {
 									<td>{item.last_name}</td>
 									<td>{item.email}</td>
 									<td>{item.phone}</td>
+									<td>
+										<Button>Editar</Button>
+									</td>
+									<td>
+										<Button onClick={(e) => this.triggerdelete(item.id)}>Borrar</Button>
+									</td>
 								</tr>
 							);
 						})}

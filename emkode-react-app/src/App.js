@@ -5,8 +5,6 @@ import Navbar from './Componentes/navbar';
 import Editar from './Componentes/Editar';
 import Lista from './Componentes/listar';
 import Pagprin from './Componentes/PaginaStandard';
-import Borrar from './Componentes/Borrar';
-import LetsDelete from './Componentes/Borrar';
 
 class App extends Component {
 	constructor(props) {
@@ -48,28 +46,13 @@ class App extends Component {
 		});
 	};
 
-	triggerborrar = () => {
-		this.setState({
-			activealistar: true,
-			activeagregar: false,
-			activeedit: false,
-			pagdef: false,
-			activeBorrar: true
-		});
-	};
 	render() {
 		return (
 			<div className="App">
-				<Navbar
-					agregar={this.triggeragregar}
-					editar={this.triggereditar}
-					listar={this.triggerlistar}
-					Borrar={this.triggerborrar}
-				/>
+				<Navbar agregar={this.triggeragregar} editar={this.triggereditar} listar={this.triggerlistar} />
 				{this.state.pagdef && <Pagprin />}
 				{this.state.activeagregar && <Registro />}
 				{this.state.activeedit && !this.state.activeagregar && <Editar />}
-				{this.state.activeBorrar && <LetsDelete />}
 				{this.state.activelistar && <Lista />}
 			</div>
 		);
