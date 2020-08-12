@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import data from '../db.json';
 import { Table, Form, FormControl, Button } from 'react-bootstrap';
+import Editar from './Editar';
+import Registro from './RegistroAltas';
 
 let datos = data.employees;
 
@@ -31,7 +33,9 @@ class Lista extends Component {
 		super(props);
 		this.state = {
 			datos: datos,
-			term: ''
+			term: '',
+			mostraredit: false,
+			mostraragregar: false
 		};
 	}
 	searchHandler = (event) => {
@@ -40,7 +44,6 @@ class Lista extends Component {
 		});
 	};
 	triggerdelete = (id) => {
-		//JESUS FUCKING CHRIST MAN, WORK!
 		let datos = [ ...this.state.datos ];
 		let datoborrar = datos.findIndex((item) => item.id === id);
 
@@ -51,10 +54,23 @@ class Lista extends Component {
 		console.log('fin', datos);
 	};
 
+	triggereditar = () => {
+		this.setState({
+			mostraredit: !this.state.mostraredit
+		});
+	};
+	triggearagregar = () => {
+		this.setState({
+			mostraragregar: !this.state.mostraragregar,
+			datos
+		});
+	};
 	render() {
 		const { term, datos } = this.state;
 		return (
 			<div>
+				{this.state.mostraredit && <Editar />};
+				{this.state.mostraragregar && <Registro />}
 				<Form className="search" inline>
 					<FormControl
 						onChange={this.searchHandler}
@@ -83,7 +99,7 @@ class Lista extends Component {
 									<td>{item.email}</td>
 									<td>{item.phone}</td>
 									<td>
-										<Button>Editar</Button>
+										<Button onClick={this.triggereditar}>Editar</Button>
 									</td>
 									<td>
 										<Button onClick={(e) => this.triggerdelete(item.id)}>Borrar</Button>
@@ -93,6 +109,7 @@ class Lista extends Component {
 						})}
 					</tbody>
 				</Table>
+				<Button onClick={this.triggearagregar}>Agregar personal</Button>
 			</div>
 		);
 	}

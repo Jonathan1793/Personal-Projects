@@ -12,8 +12,9 @@ const Pagprin = () => {
 				<Card.Body>
 					<Card.Title>Explicacion</Card.Title>
 					<Card.Text>
-						En la parte de arriba se puede encontrar los botones que sirven para ejecutar cada parte del
-						CRUD, las funciones son toggle, presionas y aparece el correspondiente Componente
+						Al principio habia un boton para cada accion en la parte de arriba en la Navbar, pero como fue
+						progresando me di cuenta de que no eran necesarios y los fui metiendo dentro del componente
+						Listar
 					</Card.Text>
 				</Card.Body>
 			</Card>
@@ -29,12 +30,10 @@ const Pagprin = () => {
 				</Card.Body>
 			</Card>
 			<Card className="cartita" border="primary" style={{ width: '18rem' }}>
-				<Card.Header>Helllo</Card.Header>
+				<Card.Header>Problemas con la app</Card.Header>
 				<Card.Body>
-					<Card.Title>Texto de mas UuUr</Card.Title>
-					<Card.Text>
-						Si llegas a ver este texto es que la pagina aun no tiene todas sus funciones trabajando
-					</Card.Text>
+					<Card.Title>Main problems 1</Card.Title>
+					<Card.Text>La funcion editar no esta trabajando correctamente pero aun no se porque</Card.Text>
 				</Card.Body>
 			</Card>
 		</div>

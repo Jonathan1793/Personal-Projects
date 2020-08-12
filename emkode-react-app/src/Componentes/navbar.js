@@ -9,13 +9,6 @@ const todos = (props) => {
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
 					<Nav className="mr-auto">
-						<Nav.Link onClick={props.agregar} href="#">
-							Agregar
-						</Nav.Link>
-						<Nav.Link onClick={props.editar} href="#link">
-							Editar
-						</Nav.Link>
-
 						<Nav.Link onClick={props.listar} href="#link">
 							Listar
 						</Nav.Link>
