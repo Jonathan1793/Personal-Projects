@@ -7,7 +7,6 @@ class Editar extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			// id: numeroid,
 			name: '',
 			last_name: '',
 			email: '',

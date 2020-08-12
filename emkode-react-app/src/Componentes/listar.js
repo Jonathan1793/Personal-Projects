@@ -6,16 +6,6 @@ import Registro from './RegistroAltas';
 
 let datos = data.employees;
 
-// for (let i = 0; i < datos.length; i++) {
-// 	for (let j = 0; j < datos.length[i]; j++) {
-// 		console.log(datos[i][j]);
-// 	}
-// }
-
-// const searchforsome = (event) => {
-// 	filter(event.target.value);
-
-// };
 function searchfor(term) {
 	return (x) => {
 		return (
@@ -23,7 +13,6 @@ function searchfor(term) {
 			x.last_name.toLowerCase().includes(term.toLowerCase()) ||
 			x.email.toLowerCase().includes(term.toLowerCase()) ||
 			x.phone.toLowerCase().includes(term)
-			// x.last_name.toLowerCase().includes(term.toLowerCase() || !term)
 		);
 	};
 }
